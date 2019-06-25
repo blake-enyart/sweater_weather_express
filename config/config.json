@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "blakeenyart",
+    "password": null,
+    "database": "sweater_weather_express_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "blakeenyart",
+    "password": null,
+    "database": "sweater_weather_express_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "blakeenyart",
+    "password": null,
+    "database": "sweater_weather_express_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
+  }
+}
