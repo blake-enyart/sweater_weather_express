@@ -14,8 +14,6 @@ function create(req, res) {
   };
 };
 
-
-
 // unRESTful functions
 function apiKeyGenerator() {
   return crypto.randomBytes(20).toString('hex');

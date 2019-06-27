@@ -13,7 +13,7 @@ router.post('/',
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  var pry = require("pryjs"); eval(pry.it);
+
   usersController.create(req, res);
 });
 
