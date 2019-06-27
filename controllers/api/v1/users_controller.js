@@ -23,19 +23,19 @@ function apiKeyGenerator() {
 
 function createUser(req, res) {
   index.bcrypt.hash(req.body.password, index.saltRounds, function(err, hash) {
-    User.create({
-      email: req.body.email,
-      password: hash,
-      apiKey: apiKeyGenerator()
-    })
-    .then(user => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(201).send(JSON.stringify({ apiKey: user.apiKey }));
-    })
-    .catch(error => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(500).send({ error });
-    });
+      User.create({
+        email: req.body.email,
+        password: hash,
+        apiKey: apiKeyGenerator()
+      })
+      .then(user => {
+        res.setHeader("Content-Type", "application/json");
+        res.status(201).send(JSON.stringify({ apiKey: user.apiKey }));
+      })
+      .catch(error => {
+        res.setHeader("Content-Type", "application/json");
+        res.status(500).send({ error });
+      });
   });
 };
 
