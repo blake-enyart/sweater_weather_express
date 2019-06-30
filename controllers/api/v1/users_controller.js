@@ -1,5 +1,5 @@
 // usersController
-var index = require('./index.js');
+var application = require('./index.js');
 var User = require('../../../models').user;
 var crypto = require('crypto');
 
@@ -20,7 +20,7 @@ function apiKeyGenerator() {
 };
 
 function createUser(req, res) {
-  index.bcrypt.hash(req.body.password, index.saltRounds, function(err, hash) {
+  application.bcrypt.hash(req.body.password, application.saltRounds, function(err, hash) {
       User.create({
         email: req.body.email,
         password: hash,
