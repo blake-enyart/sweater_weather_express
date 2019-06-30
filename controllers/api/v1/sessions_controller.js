@@ -1,6 +1,6 @@
 // sessionsController
 var application = require('./index.js');
-var User = require('../../../models').user;
+var User = application.user;
 
 function create(req, res) {
   User.findOne({where: {email: req.body.email }})
