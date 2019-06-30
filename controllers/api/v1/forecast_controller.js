@@ -1,7 +1,7 @@
 // forecastController
 var application = require('./index.js');
-var WeatherService = require('../../../services/weather_service.js');
-var WeatherSerializer = require('../../../serializers/weather_serializer.js');
+var WeatherService = application.weatherService;
+var WeatherSerializer = application.weatherSerializer;
 var User = application.user;
 
 async function index(req, res) {

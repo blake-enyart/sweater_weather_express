@@ -1,6 +1,6 @@
 // usersController
 var application = require('./index.js');
-var User = require('../../../models').user;
+var User = application.user;
 var crypto = require('crypto');
 
 function create(req, res) {
