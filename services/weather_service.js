@@ -13,7 +13,7 @@ class WeatherService {
   }
 
   nextWeek() {
-    return this.geocodedLocation().then(function(coordinates) {
+    return this.geocodedLocation().then(coordinates => {
       let darksky = new DarkSky(coordinates);
       return darksky.getWeather();
     })
