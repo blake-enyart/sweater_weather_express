@@ -5,5 +5,6 @@ module.exports = {
   saltRounds: 10,
   express: express,
   router: express.Router(),
-  fetch: require('node-fetch')
+  fetch: require('node-fetch'),
+  user: require('../../../models').user
 }
