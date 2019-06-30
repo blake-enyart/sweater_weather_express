@@ -17,6 +17,4 @@ router.post('/',
   usersController.create(req, res);
 });
 
-
-
 module.exports = router;
