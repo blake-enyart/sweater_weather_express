@@ -1,5 +1,5 @@
 // sessionsController
-var index = require('./index.js');
+var application = require('./index.js');
 var User = require('../../../models').user;
 
 function create(req, res) {
@@ -7,7 +7,7 @@ function create(req, res) {
   .then(user => {
     let hash = user.password;
 
-    index.bcrypt.compare(req.body.password, hash)
+    application.bcrypt.compare(req.body.password, hash)
     .then(function(passwordConfirmation) {
       if (passwordConfirmation) {
         res.setHeader("Content-Type", "application/json");

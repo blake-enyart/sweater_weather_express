@@ -4,5 +4,6 @@ module.exports = {
   bcrypt: require('bcrypt'),
   saltRounds: 10,
   express: express,
-  router: express.Router()
+  router: express.Router(),
+  fetch: require('node-fetch')
 }
