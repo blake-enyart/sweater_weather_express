@@ -6,7 +6,6 @@ var logger = require('morgan');
 var expressValidator = require('express-validator');
 const cors = require('cors');
 
-
 // Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api/v1/users');
