@@ -1,31 +1,31 @@
 class WeatherSerializer {
   static parse(weatherData) {
     let results = {
-      today_forecast: this.current_forecast(weatherData.currently, weatherData),
-      daily_forecast: {
-        day_1: this.daily_forecast(weatherData.daily.data[1]),
-        day_2: this.daily_forecast(weatherData.daily.data[2]),
-        day_3: this.daily_forecast(weatherData.daily.data[3]),
-        day_4: this.daily_forecast(weatherData.daily.data[4]),
-        day_5: this.daily_forecast(weatherData.daily.data[5]),
-        day_6: this.daily_forecast(weatherData.daily.data[6]),
-        day_7: this.daily_forecast(weatherData.daily.data[7])
+      todayForecast: this.currentForecast(weatherData.currently, weatherData),
+      dailyForecast: {
+        day_1: this.dailyForecast(weatherData.daily.data[1]),
+        day_2: this.dailyForecast(weatherData.daily.data[2]),
+        day_3: this.dailyForecast(weatherData.daily.data[3]),
+        day_4: this.dailyForecast(weatherData.daily.data[4]),
+        day_5: this.dailyForecast(weatherData.daily.data[5]),
+        day_6: this.dailyForecast(weatherData.daily.data[6]),
+        day_7: this.dailyForecast(weatherData.daily.data[7])
       },
-      hourly_forecast: {
-        hour_1: this.hourly_forecast(weatherData.hourly.data[1]),
-        hour_2: this.hourly_forecast(weatherData.hourly.data[2]),
-        hour_3: this.hourly_forecast(weatherData.hourly.data[3]),
-        hour_4: this.hourly_forecast(weatherData.hourly.data[4]),
-        hour_5: this.hourly_forecast(weatherData.hourly.data[5]),
-        hour_6: this.hourly_forecast(weatherData.hourly.data[6]),
-        hour_7: this.hourly_forecast(weatherData.hourly.data[7]),
-        hour_8: this.hourly_forecast(weatherData.hourly.data[8])
+      hourlyForecast: {
+        hour_1: this.hourlyForecast(weatherData.hourly.data[1]),
+        hour_2: this.hourlyForecast(weatherData.hourly.data[2]),
+        hour_3: this.hourlyForecast(weatherData.hourly.data[3]),
+        hour_4: this.hourlyForecast(weatherData.hourly.data[4]),
+        hour_5: this.hourlyForecast(weatherData.hourly.data[5]),
+        hour_6: this.hourlyForecast(weatherData.hourly.data[6]),
+        hour_7: this.hourlyForecast(weatherData.hourly.data[7]),
+        hour_8: this.hourlyForecast(weatherData.hourly.data[8])
       }
     };
     return results
   }
 
-  static current_forecast(today, weatherData) {
+  static currentForecast(today, weatherData) {
     let current = {
       summary: today.summary,
       icon: today.icon,
@@ -33,15 +33,15 @@ class WeatherSerializer {
       temperature: Math.round(today.temperature),
       high: Math.round(weatherData.daily.data[0].temperatureHigh),
       low: Math.round(weatherData.daily.data[0].temperatureLow),
-      feels_like: Math.round(today.apparentTemperature),
+      feelsLike: Math.round(today.apparentTemperature),
       humidity: (today.humidity * 100),
       visibility: today.visibility,
-      uv_index: today.uvIndex
+      uvIndex: today.uvIndex
     };
     return current
   }
 
-  static daily_forecast(day_data) {
+  static dailyForecast(day_data) {
     let daily = {
       time: day_data.time,
       summary: day_data.summary,
@@ -67,7 +67,7 @@ class WeatherSerializer {
     return daily
   }
 
-  static hourly_forecast(hour_data) {
+  static hourlyForecast(hour_data) {
     let hour = {
       time: hour_data.time,
       summary: hour_data.summary,
