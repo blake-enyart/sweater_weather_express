@@ -16,9 +16,9 @@ var favoritesRouter = require('./routes/api/v1/favorites');
 var app = express();
 
 // Bind the app to a specified port
-var port = process.env.PORT || 3000;
-app.listen(port);
-console.log("Listening on port " + port);
+// var port = process.env.PORT || 3000;
+// app.listen(port);
+// console.log("Listening on port " + port);
 
 app.use(logger('dev'));
 app.use(express.json());
