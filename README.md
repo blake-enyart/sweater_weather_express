@@ -1,7 +1,6 @@
 # Sweater Weather - Express.js, Node.js & Sequelize
-Node.js/Express app that mimics similar app built in Express
 
-# Here To Learn - Django & Jupyter Notebook
+This solo project is a remake of the Ruby project Sweater Weather: https://github.com/carriewalsh/sweater_weather. It is a backend API that provides weather data for a yet-to-be-made frontend.
 
  [Express application](http://mighty-scrubland-49036.herokuapp.com/) hosted on Heroku that utilizes a machine learning model trained with over 300,000 data points to predict test outcomes for 5,000 mock students based on eating and sleeping habits for each student.
 
