@@ -6,14 +6,6 @@ var logger = require('morgan');
 var expressValidator = require('express-validator');
 const cors = require('cors');
 
-// Set template engine
-app.set('view engine', 'ejs')
-
-// Bind the app to a specified port
-var port = process.env.PORT || 3000;
-app.listen(port);
-console.log("Listening on port " + port);
-
 // Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api/v1/users');
@@ -22,6 +14,11 @@ var forecastRouter = require('./routes/api/v1/forecast');
 var favoritesRouter = require('./routes/api/v1/favorites');
 
 var app = express();
+
+// Bind the app to a specified port
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log("Listening on port " + port);
 
 app.use(logger('dev'));
 app.use(express.json());
