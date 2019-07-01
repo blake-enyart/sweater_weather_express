@@ -3,6 +3,7 @@ const express = require("express");
 module.exports = {
   bcrypt: require('bcrypt'),
   express: express,
+  favoritesSerializer: require('../../../serializers/favorites_serializer.js'),
   fetch: require('node-fetch'),
   router: express.Router(),
   saltRounds: 10,

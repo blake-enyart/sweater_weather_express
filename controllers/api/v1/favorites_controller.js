@@ -2,6 +2,8 @@
 var application = require('./index.js');
 var User = application.user;
 var Location = application.location;
+var WeatherService = application.weatherService;
+var FavoritesSerializer = application.favoritesSerializer;
 
 async function create(req, res) {
   let user = await User.findOne({where: {apiKey:req.body.apiKey}});
@@ -34,8 +36,19 @@ async function create(req, res) {
 }
 
 async function index(req, res) {
-  let user = await User.findOne({where: {apiKey:req.body.apiKey}});
-  
+  let user = await User.findOne({where: {apiKey:req.body.apiKey || null }});
+  if (user) {
+    user.getLocations()
+    .then(async (favorites) => {
+      for (let [index, favorite] of favorites.entries()) {
+        let weather = new WeatherService(favorite.city, favorite.state);
+        let city = favorite.city[0].toUpperCase() + favorite.city.slice(1);
+        let state = favorite.state.toUpperCase();
+        favorites[index] = { location: `${city}, ${state}`, currentWeather: await weather.nextWeek() };
+      }
+      res.status(200).send(FavoritesSerializer.parse(favorites));
+    })
+  }
 }
 
 module.exports = {
