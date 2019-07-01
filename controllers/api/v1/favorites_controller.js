@@ -48,10 +48,28 @@ async function index(req, res) {
       }
       res.status(200).send(FavoritesSerializer.parse(favorites));
     })
+  } else {
+    res.status(401).send({message: `Invalid credentials.`});
+  }
+}
+
+async function destroy(req, res) {
+  let user = await User.findOne({where: {apiKey:req.body.apiKey || null }});
+  if (user) {
+    let [city, state] = req.body.location.split(',');
+    state = state.trim().toLowerCase();
+    city = city.trim().toLowerCase();
+
+    let location = await Location.findOne({where: {city: city, state: state}});
+    await user.removeLocations(location);
+    res.status(204).send();
+  } else {
+    res.status(401).send({message: `Invalid credentials.`});
   }
 }
 
 module.exports = {
   create: create,
-  index: index
+  index: index,
+  destroy: destroy
 }

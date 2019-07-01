@@ -10,4 +10,8 @@ router.get('/', (req, res) => {
   favoritesController.index(req, res);
 })
 
+router.delete('/', (req, res) => {
+  favoritesController.destroy(req, res);
+})
+
 module.exports = router;
