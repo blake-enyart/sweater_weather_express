@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
 const cors = require('cors');
+var port = process.env.PORT || 3000;
 
 // Routes
 var indexRouter = require('./routes/index');
@@ -27,5 +28,9 @@ app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/sessions', sessionsRouter);
 app.use('/api/v1/forecast', forecastRouter);
 app.use('/api/v1/favorites', favoritesRouter);
+
+app.listen(port, function () {
+ console.log(`Example app listening on port !`);
+});
 
 module.exports = app;
